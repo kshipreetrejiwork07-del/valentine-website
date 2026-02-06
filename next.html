@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: "Bahnschrift", "Segoe UI", Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    /* Background slideshow */
+    .bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      animation: slideshow 60s infinite;
+      z-index: -2;
+    }
+
+    /* Dark overlay for readability */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.45);
+      z-index: -1;
+    }
+
+    @keyframes slideshow {
+      0% { background-image: url("photos/pic1.jpeg"); }
+      7% { background-image: url("photos/pic2.jpeg"); }
+      14% { background-image: url("photos/pic3.jpeg"); }
+      21% { background-image: url("photos/pic4.jpeg"); }
+      28% { background-image: url("photos/pic5.jpeg"); }
+      35% { background-image: url("photos/pic6.jpeg"); }
+      49% { background-image: url("photos/pic8.jpeg"); }
+      56% { background-image: url("photos/pic9.jpeg"); }
+      63% { background-image: url("photos/pic10.jpeg"); }
+      70% { background-image: url("photos/pic11.jpeg"); }
+      77% { background-image: url("photos/pic12.jpeg"); }
+      84% { background-image: url("photos/pic13.jpeg"); }
+      91% { background-image: url("photos/pic14.jpeg"); }
+      100% { background-image: url("photos/pic15.jpeg"); }
+    }
+
+    /* Center letter box */
+    .letter-box {
+      max-width: 700px;
+      width: 90%;
+      margin: auto;
+      background: rgba(255,255,255,0.92);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      margin-top: 5vh;
+    }
+
+    .letter-box p {
+      font-size: clamp(15px, 3.8vw, 18px);
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 30px;
+      border: 2px solid #ff2e63;
+      border-radius: 30px;
+      color: #ff2e63;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background -->
+  <div class="bg"></div>
+  <div class="overlay"></div>
+
+  <!-- Music -->
+  <audio id="bgMusic" loop>
+    <source src="music/romantic.mpeg" type="audio/mpeg">
+  </audio>
+
+  <!-- Letter -->
+  <div class="letter-box">
+    <p>
+      I Love creating memories with you baby ❤ you are my home you are the person
+      whom I need all the time 24/7. I love and want to spend my
+      36525 days 5217.86 weeks 1200.82 months with you baby... 😩😚❤
+      <br><br>
+      I am madly and deeply in love with you.
+      <br><br>
+      I Love when you do make over of me every single thing I enjoy every thing baby
+      I love the way you try things on me so innocently… makes me feel special,
+      chosen, and very loved ❤️🫂❤
+      <br><br>
+      I wanna see you smiling and for that I can do anything for you baby ❤
+    </p>
+
+    <button id="musicBtn" style="
+      display: inline-block;
+      margin-top: 20px;
+      margin-right: 10px;
+      padding: 12px 30px;
+      background: #ff2e63;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+    ">🎵 Play Music</button>
+
+    <a href="final.html" class="btn">
+      Click here ❤️
+    </a>
+  </div>
+
+  <script>
+    const audio = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
+    let isPlaying = false;
+
+    musicBtn.addEventListener('click', function() {
+      if (isPlaying) {
+        audio.pause();
+        musicBtn.textContent = '🎵 Play Music';
+      } else {
+        audio.play().catch(function(error) {
+          console.log('Error playing audio:', error);
+        });
+        musicBtn.textContent = '⏸️ Pause Music';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // Try to autoplay on page load
+    audio.play().catch(function() {
+      console.log('Autoplay blocked by browser');
+    });
+    isPlaying = true;
+    musicBtn.textContent = '⏸️ Pause Music';
+  </script>
+
+</body>
+</html>

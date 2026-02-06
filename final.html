@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine Question ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #ffd6dc;
+      font-family: "Bahnschrift", "Segoe UI", Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      background: white;
+      border: 2px solid #ff2e63;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h1 {
+      color: #ff2e63;
+      font-size: clamp(22px, 5vw, 30px);
+    }
+
+    .buttons {
+      margin-top: 25px;
+      position: relative;
+      height: 80px;
+    }
+
+    button {
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background: #ff2e63;
+      color: white;
+      border: none;
+    }
+
+    #no {
+      position: absolute;
+      background: white;
+      color: #ff2e63;
+      border: 2px solid #ff2e63;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1>Will you be my Valentine Ammu 🥹❤️</h1>
+
+    <div class="buttons">
+      <button id="yes" onclick="goLove()">Yes ❤️</button>
+      <button id="no" onmouseover="moveNo()">No 😅</button>
+    </div>
+  </div>
+
+  <script>
+    function moveNo() {
+      const noBtn = document.getElementById("no");
+      const x = Math.random() * 200;
+      const y = Math.random() * 50;
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    function goLove() {
+      window.location.href = "love.html";
+    }
+  </script>
+
+</body>
+</html>
